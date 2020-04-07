@@ -6,19 +6,13 @@ import cv2
 import myutils
 
 
-# # 设置参数
-# ap = argparse.ArgumentParser()
-# ap.add_argument("-i", "--image", required=True, help="path to input image")
-# ap.add_argument("-t", "--template", required=True, help="path to template OCR-A image")
-# args = vars(ap.parse_args())
-#
-# # 指定信用卡类型
-# FIRST_NUMBER = {
-#     "3": "American Express",
-#     "4": "Visa",
-#     "5": "MasterCard",
-#     "6": "Discover Card"
-# }
+# 指定信用卡类型
+FIRST_NUMBER = {
+    "3": "American Express",
+    "4": "Visa",
+    "5": "MasterCard",
+    "6": "Discover Card"
+}
 
 
 # 绘图展示
@@ -180,8 +174,8 @@ for (i, (gX, gY, gW, gH)) in enumerate(locs):
     output.extend(groupOutput)
 
 # 打印结果
-# print("Credit Card Type: {}".format(FIRST_NUMBER[output[0]]))
-# print("Credit Card #: {}".format("".join(output)))
+print("Credit Card Type: {}".format(FIRST_NUMBER[output[0]]))
+print("Credit Card #: {}".format("".join(output)))
 cv2.imshow("Image", image)
 cv2.imwrite("result.jpg",image)
 cv2.waitKey(0)
